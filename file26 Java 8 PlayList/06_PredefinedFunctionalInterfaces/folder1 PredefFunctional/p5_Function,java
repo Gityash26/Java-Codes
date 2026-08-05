@@ -1,0 +1,109 @@
+/*
+
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+What is Function?
+~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~=~
+
+Function<T,R> is a predefined Functional Interface present inside
+
+        java.util.function
+
+It accepts 'ONE' input and returns 'ONE' value.
+
+Unlike Predicate,
+    => The return type is NOT limited to boolean.
+    => It can return any type.
+
+
+
+Syntax
+    Function<InputType, ReturnType> variableName;
+
+
+
+Abstract Method
+
+    R apply(T t);
+
+
+Examples
+
+------------------------------------------------------------
+
+input   => Number
+return  => Square
+------------------------------------------------------------
+
+input   => Name
+return  => Uppercase
+------------------------------------------------------------
+
+input   => String
+return  => Length
+------------------------------------------------------------
+
+
+
+Whenever our task is
+    "Take one value and process it to return another value."
+
+              Input => Process => ReturnOutput
+
+
+--------------------------------------------------------------------------------
+Program
+================================================================================
+*/
+
+import java.util.function.Function;
+
+public class p5_Function
+{
+    public static void main(String[] args)
+    {
+
+        Function<Integer,Integer> square = number -> number * number;
+
+        System.out.println(square.apply(5));
+        System.out.println(square.apply(10));
+
+
+
+        System.out.println();
+
+
+
+        /*
+        Function<String,String>
+
+        Convert into Uppercase
+        */
+
+        Function<String,String> upper =
+                name -> name.toUpperCase();
+
+        System.out.println(upper.apply("rahul"));
+        System.out.println(upper.apply("amit"));
+
+
+
+        System.out.println();
+
+
+
+        /*
+        Function<String,Integer>
+
+        Return String Length
+        */
+
+        Function<String,Integer> length =
+                name -> name.length();
+
+        System.out.println(length.apply("Java"));
+        System.out.println(length.apply("Collection"));
+
+    }
+}
+
+
